@@ -1,0 +1,8 @@
+NotEmpty.error.firstName=FirstName must not be empty
+NotNull.error.lastName= Enter name or initials
+NotEmpty.error.email=Email Id is required. 
+NotEmpty.error.password= Please fill your Password.
+Email.error.email=Enter valid email id. 
+Size.error.password=Password should be minimum of 6 and maximum of 15 characters.
+Size.error.confirmPassword=Password should be minimum of 6 and maximum of 15 characters.
+error.password.MissMatch = password and confirm password doesn't match
