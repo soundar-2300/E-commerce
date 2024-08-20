@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<bean id="orderService"
+		class="com.form.service.impl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao"></property>
+		<property name="cartDao" ref="cartDao"></property>
+		<property name="productDao" ref="productDao"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean name="orderDao" class="com.form.dao.impl.OrderDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="kartService"
+		class="com.form.service.impl.RedkartServiceimpl">
+		<property name="kartDao" ref="kartDao"></property>
+	</bean>
+	<bean name="kartDao" class="com.form.dao.impl.RedKartDaoimpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="prodService"
+		class="com.form.service.impl.ProductServiceImpl">
+		<property name="productDao" ref="productDao"></property>
+	</bean>
+	<bean name="productDao" class="com.form.dao.impl.ProductDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="cartService"
+		class="com.form.service.impl.CartServiceImpl">
+		<property name="cartDao" ref="cartDao"></property>
+		<property name="productDao" ref="productDao"></property>
+	</bean>
+	<bean name="cartDao" class="com.form.dao.impl.CartDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="userService"
+		class="com.form.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+
+	<bean name="userDao" class="com.form.dao.impl.UserDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean name="UserValidator"
+		class="com.form.validator.UserValidator" />
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/category" />
+		<property name="username" value="root" />
+		<property name="password" value="soundar@2300" />
+	</bean>
+</beans>
